@@ -71,7 +71,7 @@
 
 ## Key Relationships Overview
 
-- A **Task** belongs to a **Project**, is created by a **User**, and may be assigned to another **User**.
+- A **Task** belongs to a **Project**, is created by a **User**, and may be assigned to another **User** (depends on role).
 
 ---
 
