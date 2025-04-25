@@ -285,13 +285,47 @@ Use `/login/` to obtain your access and refresh tokens.
 
 ## Note
 - Unit tests are written for all functions
+      ```
+            Tests Run Command: (model wise)
+
+                python manage.py test core.tests.test_views_user  
+                python manage.py test core.tests.test_views_project 
+                python manage.py test core.tests.test_views_task  
+                python manage.py test core.tests.test_views_command
+
+
 - Custom error handlled for user email, password fields
+
+    ![image](https://github.com/user-attachments/assets/0527ad87-698a-4d5e-ac82-2187b5be2dca)
+
+  
 - Used django pagination (limit and offset as query param)
+
+      ![image](https://github.com/user-attachments/assets/0dcc8876-f986-47a7-8102-637fd1ec96f5)
+
 - Can filter tasks by status
+ 
+     ![image](https://github.com/user-attachments/assets/93d9867c-2e14-459a-a1bd-9f1957440594)
+
 - Search by project name, task title
+ 
+     ![image](https://github.com/user-attachments/assets/67a85d4f-aadb-4532-abe1-76ade6be28c5)
+
+
 - Integrated mail trap email for notify tech leads about task status
+  
+    ![image](https://github.com/user-attachments/assets/17c87e25-03b5-4c89-8b35-3f5ebd0a735d)
+
 - Can generate report and view (based on permissions)
-- Used caching to reduce querying repeated data 
+
+       /api/projects/<INT:PK>/progress-report/
+  
+- Used caching to reduce querying repeated data
+
+    ```
+    
+       -@method_decorator(cache_page(60 * 2) )
+
 
 ---
 
@@ -300,9 +334,6 @@ Use `/login/` to obtain your access and refresh tokens.
 ![image](https://github.com/user-attachments/assets/f6422343-ee12-4fec-9389-9cccb572582a)
 
 
-## Screenshots
-
-![image](https://github.com/user-attachments/assets/17c87e25-03b5-4c89-8b35-3f5ebd0a735d)
 
 
 
