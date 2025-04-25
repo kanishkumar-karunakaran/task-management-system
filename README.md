@@ -71,14 +71,14 @@
 
 ## Key Relationships Overview
 
-- A **Task** belongs to a **Project**, is created by a **User**, and may be assigned to another **User**.
+- A **Task** belongs to a **Project**, is created by a **User**, and may be assigned to another **User** (depends on role).
 
 ---
 
 ## API Overview
 
 
-All endpoints are protected using JWT authentication.  
+All endpoints are protected using JWT authentication and RBAC authorization.  
 Use `/login/` to obtain your access and refresh tokens.
 
 
@@ -179,6 +179,8 @@ Use `/login/` to obtain your access and refresh tokens.
 - `PATCH /tasks/<pk>/update-status/`  
   Developer updates their assigned task's status
 
+  Email notification sent to Team Lead
+
 
 ---
 
@@ -201,10 +203,28 @@ Use `/login/` to obtain your access and refresh tokens.
 - `DELETE /comments/<pk>/delete/`  
   Delete a comment
 
-
 ---
 
 
 ## Project Reports
 
 - Include task status, progress %, and team members.
+
+
+## Note
+- Unit tests are written for all functions
+- Custom error handlled for user email, password fields
+- Used django pagination (limit and offset as query param)
+- Can filter tasks by status
+- Search by project name, task title
+- Integrated mail trap email for notify tech leads about task status
+- Can generate report and view (based on permissions)
+- Used caching to reduce querying repeated data 
+
+---
+
+## Permissions
+
+![image](https://github.com/user-attachments/assets/f6422343-ee12-4fec-9389-9cccb572582a)
+
+
