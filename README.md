@@ -301,7 +301,7 @@ Use `/login/` to obtain your access and refresh tokens.
   
 - Used django pagination (limit and offset as query param)
 
-      ![image](https://github.com/user-attachments/assets/0dcc8876-f986-47a7-8102-637fd1ec96f5)
+   ![image](https://github.com/user-attachments/assets/0dcc8876-f986-47a7-8102-637fd1ec96f5)
 
 - Can filter tasks by status
  
