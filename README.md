@@ -215,3 +215,16 @@ Use `/login/` to obtain your access and refresh tokens.
 ## Project Reports
 
 - Include task status, progress %, and team members.
+
+
+## Note
+- Unit tests are written for all functions
+- Custom error handlled for user email, password fields
+- Used django pagination (limit and offset as query param)
+- Can filter tasks by status
+- Search by project name, task title
+- Integrated mail trap email for notify tech leads about task status
+- Can generate report and view (based on permissions)
+- Used caching to reduce querying repeated data 
+
+
