@@ -12,8 +12,8 @@
 
 
 ### User
-- `name`: Full name of the user.
-- `email`: Unique login credential.
+- `name`: user name
+- `email`: Unique official email 
 - `role`: Assigned role.
 - Related Fields:
   - Can create multiple `Projects` (`created_projects`)
@@ -75,9 +75,7 @@
 
 ---
 
-## ============
 ## API Overview
-## =============
 
 
 All endpoints are protected using JWT authentication.  
