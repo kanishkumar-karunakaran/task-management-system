@@ -12,8 +12,8 @@
 
 
 ### User
-- `name`: user name
-- `email`: Unique official email 
+- `name`: Full name of the user.
+- `email`: Unique login credential.
 - `role`: Assigned role.
 - Related Fields:
   - Can create multiple `Projects` (`created_projects`)
@@ -90,22 +90,48 @@ Use `/login/` to obtain your access and refresh tokens.
 
 - `POST /login/`  
   Authenticate and retrieve JWT tokens (access & refresh)
+        
+  ```
+  METHOD: POST
+    {
+            "email":"admin@gmail.com",
+            "password":"****"
+    }
+  ```
 
 
 - `POST /users/create/`  
-  Create a new user account
+  Create a new user account (only admin)
 
+```
+  METHOD: POST
+
+    {
+      "Authorization": "Bearer your_access_token"  // ADMIN
+    }
+
+    {
+      "email": "user@example.com",
+      "name": "John Doe",
+      "password": "password123",
+      "role": "developer"
+    }
+```
 
 - `GET /users/`  
   List all users (admin-only)
+  {
+    "Authorization": "Bearer your_access_token"
+  }
 
 
 - `GET /users/<id>/`  
   Retrieve a specific user's details
 
-
-- `PUT /users/<id>/update/`  
-  Admin updates a specific user
+      ```
+        Method: GET
+        Admin updates a specific user
+      ```
 
 
 - `DELETE /users/<id>/delete/`  
@@ -118,6 +144,13 @@ Use `/login/` to obtain your access and refresh tokens.
 
 - `PUT /users/me/`  
   Update the current user's own profile
+
+      {
+      "email": "user@example.com",
+      "name": "John Doe Updated",
+      "role": "developer"
+    }
+
 
 
 ---
@@ -133,6 +166,13 @@ Use `/login/` to obtain your access and refresh tokens.
 - `POST /projects/`  
   Create a new project
 
+      {
+      "name": "New Project",
+      "description": "This is a description of the new project.",
+      "members": [1, 2]  // List of user IDs to associate as members
+    }
+
+
 
 - `GET /projects/<pk>/`  
   Get details of a specific project
@@ -140,6 +180,12 @@ Use `/login/` to obtain your access and refresh tokens.
 
 - `PUT /projects/<id>/update/`  
   Update a project's details
+
+      {
+        "name": "Updated Project Name",
+        "description": "Updated project description.",
+        "members": [1, 3]  // Updated list of user IDs as members
+      }
 
 
 - `DELETE /projects/<pk>/delete/`  
@@ -162,6 +208,12 @@ Use `/login/` to obtain your access and refresh tokens.
 
 - `POST /tasks/create/`  
   Create a new task
+      {
+        "title": "New Task",
+        "description": "This task needs to be completed by the developer.",
+        "project": 1,  // ID of the project this task belongs to
+        "assigned_to": 2  // ID of the user assigned to this task
+      }
 
 
 - `GET /tasks/<pk>/`  
@@ -170,7 +222,13 @@ Use `/login/` to obtain your access and refresh tokens.
 
 - `PUT /tasks/<pk>/update/`  
   Update a task
-
+      
+      {
+        "title": "Updated Task Title",
+        "description": "Updated description for the task.",
+        "status": "IN_PROGRESS",
+        "assigned_to": 3  // ID of the user assigned to the task
+      }
 
 - `DELETE /tasks/<pk>/delete/`  
   Delete a task
@@ -178,8 +236,12 @@ Use `/login/` to obtain your access and refresh tokens.
 
 - `PATCH /tasks/<pk>/update-status/`  
   Developer updates their assigned task's status
-
   Email notification sent to Team Lead
+
+      {
+      "status": "IN_PROGRESS"
+    }
+
 
 
 ---
@@ -195,10 +257,20 @@ Use `/login/` to obtain your access and refresh tokens.
 - `POST /comments/create/`  
   Create a comment on a task or project
 
+  
+        {
+          "content": "This is a comment on the task.",
+          "project": 1,  // ID of the project the comment belongs to
+          "task": 2  // ID of the task the comment belongs to
+        }
+
 
 - `PUT /comments/<pk>/update/`  
-  Update an existing comment
-
+  Update an existing comment (by comment id)
+    
+        {
+          "content": "Updated comment content"
+        }
 
 - `DELETE /comments/<pk>/delete/`  
   Delete a comment
