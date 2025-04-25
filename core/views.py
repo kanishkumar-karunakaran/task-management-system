@@ -69,7 +69,7 @@ class CreateUserView(generics.CreateAPIView):
 @method_decorator(vary_on_headers("Authorization"), name='dispatch')
 @method_decorator(cache_page(60 * 2), name='dispatch') 
 class ListUsersView(generics.ListAPIView):
-    queryset = User.objects.only('id', 'email', 'name', 'role').select_related('profile')  
+    queryset = User.objects.only('id', 'email', 'name', 'role')
     serializer_class = UserSerializer
     permission_classes = [permissions.IsAuthenticated, IsAdminUserJWT]
     
