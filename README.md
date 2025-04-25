@@ -75,12 +75,10 @@
 
 ---
 
-## ============
 ## API Overview
-## =============
 
 
-All endpoints are protected using JWT authentication.  
+All endpoints are protected using JWT authentication and RBAC authorization.  
 Use `/login/` to obtain your access and refresh tokens.
 
 
