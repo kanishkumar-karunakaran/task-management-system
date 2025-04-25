@@ -1,0 +1,31 @@
+Project Progress Report: copilot-v2
+Project Manager: sathish
+Team Members: kanish, kumar, Team Lead
+
+Task Details:
+- Task: task-1
+  Status: DONE
+  Points: 10
+
+- Task: task-1
+  Status: IN_PROGRESS
+  Points: 5
+
+- Task: task-1
+  Status: TODO
+  Points: 0
+
+- Task: task-2
+  Status: TODO
+  Points: 0
+
+Total Tasks: 4
+Completed Tasks: 1
+In Progress Tasks: 1
+To Do Tasks: 2
+
+Overall Project Progress: 37.5%
+
+Report generated on: 2025-04-25 12:38:34
+Project Progress depends on task completion. The higher the number of tasks completed, the more progress the project has made.
+A task is considered completed when it has the status 'DONE'. Tasks in 'IN_PROGRESS' or 'TODO' represent incomplete work.
