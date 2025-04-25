@@ -203,12 +203,6 @@ Use `/login/` to obtain your access and refresh tokens.
 - `DELETE /comments/<pk>/delete/`  
   Delete a comment
 
-
-## Permissions
-
-![image](https://github.com/user-attachments/assets/4261b977-7d2f-4dc3-8f42-2316d40b1017)
-
-
 ---
 
 
@@ -226,5 +220,11 @@ Use `/login/` to obtain your access and refresh tokens.
 - Integrated mail trap email for notify tech leads about task status
 - Can generate report and view (based on permissions)
 - Used caching to reduce querying repeated data 
+
+---
+
+## Permissions
+
+![image](https://github.com/user-attachments/assets/f6422343-ee12-4fec-9389-9cccb572582a)
 
 
