@@ -179,6 +179,8 @@ Use `/login/` to obtain your access and refresh tokens.
 - `PATCH /tasks/<pk>/update-status/`  
   Developer updates their assigned task's status
 
+  Email notification sent to Team Lead
+
 
 ---
 
