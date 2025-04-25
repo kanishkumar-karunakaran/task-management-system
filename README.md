@@ -204,6 +204,11 @@ Use `/login/` to obtain your access and refresh tokens.
   Delete a comment
 
 
+## Permissions
+
+![image](https://github.com/user-attachments/assets/4261b977-7d2f-4dc3-8f42-2316d40b1017)
+
+
 ---
 
 
