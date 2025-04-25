@@ -1,21 +1,21 @@
 from rest_framework import generics, permissions, filters
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework_simplejwt.views import TokenObtainPairView
-from .models import User, Project, Task
+from .models import User, Project, Task, Comment
 from .serializers import (
     UserSerializer,
     UserUpdateSerializer,
     CustomTokenObtainPairSerializer,
-    ProjectSerializer, TaskSerializer
+    ProjectSerializer, TaskSerializer, CommentSerializer
 )
 from .permissions import IsAdminUserJWT, IsAdminOrProjectAccess, IsProjectManagerOrAdmin, IsAdminOrPMOrTL, IsDeveloperUpdatingOwnStatus
 from django.utils.decorators import method_decorator
 from django.views.decorators.cache import cache_page
 from django.views.decorators.vary import vary_on_headers
-from rest_framework.exceptions import ValidationError
 from .exceptions import InvalidUserDataException
 from .notify import notify_tech_lead_on_task_update
 from rest_framework.filters import SearchFilter
+from rest_framework.exceptions import ValidationError, PermissionDenied
 
 
 
@@ -23,7 +23,6 @@ class CustomLoginView(TokenObtainPairView):
     serializer_class = CustomTokenObtainPairSerializer
 
 
-from rest_framework.exceptions import ValidationError
 
 
 class CreateUserView(generics.CreateAPIView):
@@ -403,25 +402,11 @@ class TaskDeleteView(generics.DestroyAPIView):
         return Response({"message": "Task deleted successfully."}, status=status.HTTP_200_OK)
 
 
-from rest_framework import generics, status
-from rest_framework.permissions import IsAuthenticated
-from rest_framework.response import Response
-from rest_framework.exceptions import PermissionDenied
-from .models import Comment, Project, Task
-from .serializers import CommentSerializer
-
-from rest_framework import generics, status
-from rest_framework.permissions import IsAuthenticated
-from rest_framework.response import Response
-from .models import Comment, Project, Task
-from .serializers import CommentSerializer
-from rest_framework.exceptions import PermissionDenied
-
 
 class CommentCreateView(generics.CreateAPIView):
     queryset = Comment.objects.all()
     serializer_class = CommentSerializer
-    permission_classes = [IsAuthenticated]
+    permission_classes = [permissions.IsAuthenticated]
 
 
     def create(self, request, *args, **kwargs):
@@ -507,7 +492,7 @@ class CommentListView(generics.ListAPIView):
 class CommentDeleteView(generics.DestroyAPIView):
     queryset = Comment.objects.all()
     serializer_class = CommentSerializer
-    permission_classes = [IsAuthenticated]
+    permission_classes = [permissions.IsAuthenticated]
 
 
     def perform_destroy(self, instance):
@@ -541,7 +526,7 @@ class CommentDeleteView(generics.DestroyAPIView):
 class CommentUpdateView(generics.UpdateAPIView):
     queryset = Comment.objects.all()
     serializer_class = CommentSerializer
-    permission_classes = [IsAuthenticated]
+    permission_classes = [permissions.IsAuthenticated]
 
 
     def perform_update(self, serializer):
