@@ -300,3 +300,9 @@ Use `/login/` to obtain your access and refresh tokens.
 ![image](https://github.com/user-attachments/assets/f6422343-ee12-4fec-9389-9cccb572582a)
 
 
+## Screenshots
+
+![image](https://github.com/user-attachments/assets/17c87e25-03b5-4c89-8b35-3f5ebd0a735d)
+
+
+
